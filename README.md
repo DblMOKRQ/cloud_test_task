@@ -5,7 +5,6 @@
 # Запуск
 
 	1. Создать переменную окружения CONFIG_PATH - путь до конфиг файла
- 	2. Выбрать алгоритм выборки сервера (roundrobin или random)
 	2. Собрать go файл "go build -o balancer cmd/main.go"
 	3. Запустить go файл "go run main.exe"
 ## Основные возможности
@@ -38,6 +37,8 @@ storage:
     host: "redis"       # Хост Redis
     port: 6379          # Порт Redis
     password: ""        # Пароль Redis
+balancer:
+  algorithm: roundrobin # Алгоритм распределения запросов (roundrobin или random)
 ```
 Управление ограничениями
 POST /edit - Изменяет ограничения для конкретного IP
