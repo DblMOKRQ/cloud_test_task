@@ -1,0 +1,21 @@
+host: "localhost"
+port: 8080
+backends:
+  - "http://localhost:8001"
+  - "http://localhost:8002"
+  # - "http://localhost:8003"
+rate_limiting:
+  # capacity: 100
+  # rate_per_second: 10
+  capacity: 3
+  rate_per_second: 1
+storage:
+  redis:
+    host: localhost
+    port: 6379
+    password: ""
+healthcheck:
+  interval: 10s
+  timeout: 5s
+balancer:
+  algorithm: roundrobin
